@@ -169,7 +169,7 @@ function update(delta) {
 
     for (let j = bullets.length - 1; j >= 0; j -= 1) {
       const bullet = bullets[j];
-      if (Math.hypot(enemy.x - bullet.x, enemy.y - bullet.y) < enemy.size * 0.72) {
+      if (Math.hypot(enemy.x - bullet.x, enemy.y - bullet.y) < enemy.size * 0.9) {
         bullets.splice(j, 1);
         enemy.hp -= 1;
         if (enemy.hp <= 0) {
@@ -257,14 +257,41 @@ function draw() {
     ctx.rotate(Math.sin(enemy.y / 70) * 0.15);
     ctx.shadowColor = "#ff476e";
     ctx.shadowBlur = 15;
-    ctx.fillStyle = enemy.hp > 1 ? "#d64a78" : "#ff5878";
+    ctx.fillStyle = enemy.hp > 1 ? "#a83261" : "#d84368";
     ctx.beginPath();
-    ctx.moveTo(0, enemy.size);
-    ctx.lineTo(enemy.size * 0.82, -enemy.size * 0.55);
-    ctx.lineTo(0, -enemy.size * 0.2);
-    ctx.lineTo(-enemy.size * 0.82, -enemy.size * 0.55);
+    ctx.moveTo(0, enemy.size * 0.92);
+    ctx.lineTo(enemy.size * 0.24, enemy.size * 0.28);
+    ctx.lineTo(enemy.size * 0.88, -enemy.size * 0.38);
+    ctx.lineTo(enemy.size * 0.62, enemy.size * 0.34);
+    ctx.lineTo(enemy.size * 0.28, enemy.size * 0.18);
+    ctx.lineTo(enemy.size * 0.2, -enemy.size * 0.56);
+    ctx.lineTo(0, -enemy.size * 0.78);
+    ctx.lineTo(-enemy.size * 0.2, -enemy.size * 0.56);
+    ctx.lineTo(-enemy.size * 0.28, enemy.size * 0.18);
+    ctx.lineTo(-enemy.size * 0.62, enemy.size * 0.34);
+    ctx.lineTo(-enemy.size * 0.88, -enemy.size * 0.38);
+    ctx.lineTo(-enemy.size * 0.24, enemy.size * 0.28);
     ctx.closePath();
     ctx.fill();
+
+    ctx.shadowBlur = 0;
+    ctx.fillStyle = "#ff9aae";
+    ctx.beginPath();
+    ctx.moveTo(0, enemy.size * 0.54);
+    ctx.lineTo(enemy.size * 0.11, -enemy.size * 0.36);
+    ctx.lineTo(0, -enemy.size * 0.58);
+    ctx.lineTo(-enemy.size * 0.11, -enemy.size * 0.36);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.fillStyle = "#ffcf79";
+    ctx.fillRect(-enemy.size * 0.67, enemy.size * 0.12, enemy.size * 0.14, enemy.size * 0.25);
+    ctx.fillRect(enemy.size * 0.53, enemy.size * 0.12, enemy.size * 0.14, enemy.size * 0.25);
+
+    ctx.shadowColor = "#ff476e";
+    ctx.shadowBlur = 10;
+    ctx.fillStyle = "#ff647e";
+    ctx.fillRect(-enemy.size * 0.1, -enemy.size * 0.77, enemy.size * 0.2, enemy.size * 0.2);
     ctx.restore();
   }
 
