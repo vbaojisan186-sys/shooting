@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#080d1c">
+    <title>STAR STRIKER</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="topbar">
+        <h1>STAR <span>STRIKER</span></h1>
+        <div class="hud" aria-live="polite">
+          <p>SCORE <strong id="score">000000</strong></p>
+          <p>LIVES <strong id="lives">3</strong></p>
+        </div>
+      </header>
+
+      <section class="game-frame" aria-label="縦スクロールシューティングゲーム">
+        <canvas id="game" aria-label="ゲーム画面"></canvas>
+        <div class="overlay" id="overlay">
+          <div class="overlay-card">
+            <p class="eyebrow">GALAXY DEFENDER</p>
+            <h2 id="overlay-title">出撃準備完了</h2>
+            <p id="overlay-message">迫りくる敵を撃墜して、ハイスコアを目指そう。</p>
+            <button id="start-button" type="button">ゲームスタート</button>
+            <p class="instructions">移動：矢印キー / WASD　・　攻撃：自動</p>
+          </div>
+        </div>
+      </section>
+
+      <nav class="touch-controls" aria-label="タッチ操作">
+        <button type="button" data-key="ArrowLeft" aria-label="左へ">◀</button>
+        <button type="button" data-key="ArrowUp" aria-label="上へ">▲</button>
+        <button type="button" data-key="ArrowDown" aria-label="下へ">▼</button>
+        <button type="button" data-key="ArrowRight" aria-label="右へ">▶</button>
+      </nav>
+      <p class="footer-note">敵の攻撃を避けて、宇宙を守り抜け！</p>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
